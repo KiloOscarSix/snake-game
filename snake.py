@@ -20,7 +20,7 @@ class Snake:
     def y(self) -> int:
         return self.head.y
 
-    def on_key_press(self, e: tkinter.Event[tkinter.Misc]) -> None:
+    def on_key_press(self, e: "tkinter.Event[tkinter.Misc]") -> None:
         if e.keysym == "Up" and self.vel_y != 1:
             self.vel_x = 0
             self.vel_y = -1
@@ -34,7 +34,7 @@ class Snake:
             self.vel_x = 1
             self.vel_y = 0
 
-    def has_self_collision(self) -> bool:
+    def has_self_collided(self) -> bool:
         for tile in self.body:
             if self.head.x == tile.x and self.head.y == tile.y:
                 return True
